@@ -83,11 +83,13 @@ impl XelisWallet {
     }
 
     pub async fn online_mode(&self, daemon_address: String) -> Result<()> {
-        Ok(self.wallet.set_online_mode(&daemon_address, true).await?)
+        // Ok(self.wallet.set_online_mode(&daemon_address, true).await?)
+        todo!("")
     }
 
     pub async fn offline_mode(&self) -> Result<()> {
-        Ok(self.wallet.set_offline_mode().await?)
+        // Ok(self.wallet.set_offline_mode().await?)
+        todo!("")
     }
 
     pub async fn is_online(&self) -> bool {
@@ -145,7 +147,8 @@ impl XelisWallet {
     }
 
     pub async fn rescan(&self, topoheight: u64) -> Result<()> {
-        Ok(self.wallet.rescan(topoheight, true).await?)
+        // Ok(self.wallet.rescan(topoheight, true).await?)
+        todo!("")
     }
 
     pub async fn estimate_fees(&self, transfers: Vec<Transfer>) -> Result<u64> {
@@ -386,19 +389,20 @@ impl XelisWallet {
     }
 
     pub async fn get_daemon_info(&self) -> Result<String> {
-        let mutex = self.wallet.get_network_handler().await;
-        let lock = mutex.lock().await;
-        let network_handler = lock.as_ref().context("network handler not available")?;
-        let api = network_handler.get_api();
+        todo!("")
+        // let mutex = self.wallet.get_network_handler().await;
+        // let lock = mutex.lock().await;
+        // let network_handler = lock.as_ref().context("network handler not available")?;
+        // let api = network_handler.get_api();
 
-        let info = match api.get_info().await {
-            Ok(info) => info,
-            Err(e) => {
-                return Err(e);
-            }
-        };
+        // let info = match api.get_info().await {
+        //     Ok(info) => info,
+        //     Err(e) => {
+        //         return Err(e);
+        //     }
+        // };
 
-        Ok(serde_json::to_string(&info)?)
+        // Ok(serde_json::to_string(&info)?)
     }
 
     pub async fn format_coin(
